@@ -399,12 +399,12 @@ GameObject:
   - component: {fileID: 478255358}
   - component: {fileID: 478255357}
   m_Layer: 5
-  m_Name: MusicButton
-  m_TagString: Untagged
+  m_Name: ResetProgressButton
+  m_TagString: ResetProgressButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &478255356
 RectTransform:
   m_ObjectHideFlags: 0
@@ -467,7 +467,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 478255358}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1639142412}
+        m_TargetAssemblyTypeName: LevelSystem, Assembly-CSharp
+        m_MethodName: ResetProgress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &478255358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,7 +500,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: de33a7d151b630240a0197047d0e38de, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4d1700ae69736194ca85c2bbf8c19f49, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

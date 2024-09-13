@@ -1,0 +1,4 @@
+repository "Cube-Escape-Remake-@unity_E4DCA94C96F617438899@cloud"
+  path "/"
+    br "/main"
+    co "/main"

@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -51,8 +50,6 @@ public class LevelSystem : MonoBehaviour
             Debug.LogError("Start button not found!");
         }
 
-        
-
         Button homeButton = GameObject.Find("HomeButton")?.GetComponent<Button>();
         if (homeButton != null)
         {
@@ -74,20 +71,30 @@ public class LevelSystem : MonoBehaviour
         {
             Debug.LogError("Reset button not found!");
         }
+
+        Button resetProgressButton = GameObject.Find("ResetProgressButton")?.GetComponent<Button>();
+        if (resetProgressButton != null)
+        {
+            resetProgressButton.onClick.AddListener(ResetProgress);
+            Debug.Log("Reset Progress button found and event listener added.");
+        }
+        else
+        {
+            Debug.LogError("Reset Progress button not found!");
+        }
     }
 
     private void Update() 
     {
-        if(Input.GetKey("h"))
+        if (Input.GetKey("h"))
         {
             HomeButton();
         }
 
-        if(Input.GetKey("r"))
+        if (Input.GetKey("r"))
         {
             ResetButton();
         }
-
     }
 
     public void StartButton() // Вызывается при нажатии кнопки старта
@@ -104,7 +111,16 @@ public class LevelSystem : MonoBehaviour
 
     public void ResetButton()
     {
+        Debug.Log("Reset button pressed.");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // Перезагружаем текущую сцену
+    }
+
+    public void ResetProgress()
+    {
+        CurrentLevel = 1; // Сброс уровня до первого
+        SaveProgress(); // Сохранение прогресса
+        Debug.Log("Progress has been reset.");
+        SceneManager.LoadScene(0); // Опционально загрузить начальную сцену
     }
 
     public void SaveProgress()
